@@ -1,10 +1,3 @@
-//
-//  mainPageView.swift
-//  CoffeeShop
-//
-//  Created by Kamil Porębski on 20/01/2025.
-//
-
 import SwiftUI
 
 struct mainPageView: View {
@@ -26,7 +19,7 @@ struct mainPageView: View {
                 UIScrollView.appearance().bounces = false
             }
         }
-        .padding(.bottom, -110)
+        .ignoresSafeArea(.all)
     }
 }
 

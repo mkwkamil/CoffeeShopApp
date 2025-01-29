@@ -11,7 +11,7 @@ struct Coffee: Codable, Hashable, Identifiable {
     var price: Double
     var rating: Double
     var ratingCount: Int
-    var isFavorie: Bool
+    var isFavorite: Bool
     
     private var imageName: String
     var image: Image {

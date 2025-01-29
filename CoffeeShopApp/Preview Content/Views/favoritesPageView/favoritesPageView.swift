@@ -1,10 +1,3 @@
-//
-//  favoritesPageView.swift
-//  CoffeeShop
-//
-//  Created by Kamil Porębski on 20/01/2025.
-//
-
 import SwiftUI
 
 struct favoritesPageView: View {
@@ -12,15 +5,32 @@ struct favoritesPageView: View {
 
     var body: some View {
         VStack {
-            List(modelData.coffees.filter{$0.isFavorie}) { coffee in
-                Text(coffee.name)
-            }        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(hex: "EDEDED"))
-        .padding(.bottom, -110)
+            HStack {
+                Text("Your Favorites")
+                    .font(.title3.bold())
+                    .padding(10)
+                
+            }
+            .foregroundColor(.black)
+            ScrollView(showsIndicators: false) {
+                VStack {
+
+                    ForEach(modelData.coffees.filter{$0.isFavorite}, id: \.id) { coffee in
+                        NavigationLink {
+                            detailPageView(coffee: coffee)
+                        } label: {
+                            favoritesPageItem(coffee: coffee)
+                        }
+                    }
+                }
+                .padding(.bottom, 120)
+            }
+            .background(Color(hex: "EDEDED"))
+        }
     }
 }
 
 #Preview {
     favoritesPageView()
+        .environment(ModelData())
 }

@@ -6,7 +6,7 @@ class ModelData {
     
     func toggleFavorite(for coffeeId: Int) {
         if let index = coffees.firstIndex(where: { $0.id == coffeeId }) {
-            coffees[index].isFavorie.toggle()
+            coffees[index].isFavorite.toggle()
         }
     }
 }

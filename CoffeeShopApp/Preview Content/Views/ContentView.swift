@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab: CoffeeBottomToolbar.Tab = .mainPage
+    @State private var selectedTab: CoffeeBottomToolbar.Tab = .favoritesPage
     var body: some View {
         NavigationStack {
-            VStack {
+            ZStack {
                 switch selectedTab {
                 case .mainPage:
                     mainPageView()
@@ -23,9 +23,13 @@ struct ContentView: View {
                     notificationsPageView()
                 }
                 
-                CoffeeBottomToolbar(selectedTab: $selectedTab)
+                VStack {
+                    Spacer()
+                    CoffeeBottomToolbar(selectedTab: $selectedTab)
+                }
             }
-            .ignoresSafeArea(.all)
+            .background(Color(hex: "EDEDED"))
+            .ignoresSafeArea(.all, edges: .bottom)
         }
     }
 }

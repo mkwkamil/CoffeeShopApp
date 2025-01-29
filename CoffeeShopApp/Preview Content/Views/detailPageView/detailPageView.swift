@@ -18,7 +18,7 @@ struct detailPageView: View {
                     coffee.image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: .infinity, height: 210)
+                        .frame(height: 210)
                         .cornerRadius(16)
 
                     HStack {
@@ -153,7 +153,7 @@ struct detailPageView: View {
                     modelData.toggleFavorite(for: coffee.id)
                 } label: {
                     Group {
-                        if coffee.isFavorie == true {
+                        if coffee.isFavorite {
                             FilledFavoritesIcon()
                                 .fill(Color(hex: "FBBE21"))
                         } else {
