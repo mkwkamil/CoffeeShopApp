@@ -33,10 +33,10 @@ struct mainCoffeeTopBar: View {
                         Text(selectedLocation)
                             .foregroundColor(.white)
                             .font(.headline)
-                            .foregroundColor(Color(hex: "D8D8D8"))
+                            .foregroundColor(Color.coffeeLocationSelected)
 //                        Spacer()
                         Image(systemName: "chevron.down")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.coffeeLocationSelected)
                     }
                 }
             }
@@ -47,12 +47,13 @@ struct mainCoffeeTopBar: View {
                         .foregroundColor(.white)
                     TextField("",
                         text: $coffeeName,
-                        prompt: Text("Search coffee")           .foregroundColor(Color(hex: "A2A2A2"))
+                        prompt: Text("Search coffee")
+                        .foregroundColor(Color.coffeeGray)
                     )
-                    .foregroundColor(Color(hex: "A2A2A2"))
+                    .foregroundColor(Color.coffeeGray)
                 }
                 .padding(22)
-                .background(Color(hex: "2A2A2A"))
+                .background(Color.coffeeSearchBack)
                 .cornerRadius(20)
                 Button {
                     // logika
@@ -60,7 +61,7 @@ struct mainCoffeeTopBar: View {
                     Image(systemName: "line.3.horizontal.decrease")
                         .foregroundColor(.white)
                         .frame(width: 60, height: 60)
-                        .background(Color(hex: "C67C4E"))
+                        .background(Color.coffeeBrown)
                         .clipShape(Rectangle())
                         .cornerRadius(10)
                         .padding()

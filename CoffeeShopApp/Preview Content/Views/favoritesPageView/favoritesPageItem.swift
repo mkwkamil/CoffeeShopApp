@@ -41,14 +41,14 @@ struct favoritesPageItem: View {
                     Image(systemName: "plus")
                         .foregroundColor(.white)
                         .frame(width: 40, height: 40)
-                        .background(Color(red: 198 / 255, green: 124 / 255, blue: 78 / 255))
+                        .background(Color.coffeeBrown)
                         .clipShape(Rectangle())
                         .cornerRadius(12)
                 }
             }
             .padding()
         }
-        .background(Color.white)
+        .background(Color.white.opacity(0.4))
         .cornerRadius(15)
         .padding(.horizontal)
     }

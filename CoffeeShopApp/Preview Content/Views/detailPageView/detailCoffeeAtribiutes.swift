@@ -13,11 +13,11 @@ struct detailCoffeeAtribiutes: View {
             Image(systemName: "cup.and.saucer.fill")
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
-                .foregroundColor(Color(hex: "C67C4E"))
+                .foregroundColor(Color.coffeeBrown)
                 .frame(width: 20, height: 20)
         }
         .padding()
-        .background(Color(hex: "EDEDED", opacity: 0.35))
+        .background(Color.coffeeBack.opacity(0.35))
         .cornerRadius(12)    }
 }
 

@@ -2,10 +2,22 @@ import SwiftUI
 
 struct mainCoffeeItemList: View {
     var coffees: [Coffee]
+    var selectedCoffeeType: String
+    
+    var filteredCoffees: [Coffee] {
+        if selectedCoffeeType == "All coffee" {
+            return coffees
+        }
+        else {
+            return coffees.filter {
+                $0.category == selectedCoffeeType
+            }
+        }
+    }
     
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-            ForEach(coffees, id: \.id) { coffee in
+            ForEach(filteredCoffees, id: \.id) { coffee in
                 NavigationLink {
                     detailPageView(coffee: coffee)
                 } label: {
@@ -19,6 +31,6 @@ struct mainCoffeeItemList: View {
 }
 
 #Preview {
-    mainCoffeeItemList(coffees: ModelData().coffees)
+    mainCoffeeItemList(coffees: ModelData().coffees, selectedCoffeeType: "All coffee")
         .environment(ModelData())
 }

@@ -1,14 +1,7 @@
-//
-//  mainCoffeeTypes.swift
-//  CoffeeShop
-//
-//  Created by Kamil Porębski on 20/01/2025.
-//
-
 import SwiftUI
 
 struct mainCoffeeTypes: View {
-    @State private var selectedCoffeeType: String = "All coffee"
+    @Binding var selectedCoffeeType: String
     @State private var coffeeTypes: [String] = ["All coffee", "Machiato", "Latte", "Americano"]
     
     var body: some View {
@@ -24,7 +17,7 @@ struct mainCoffeeTypes: View {
                             .padding(.horizontal, 11)
                             .foregroundColor(coffeeType == selectedCoffeeType ?
                                 .white : .black)
-                            .background(coffeeType == selectedCoffeeType ?  Color(hex: "C67C4E") : Color(hex: "EDEDED"))
+                            .background(coffeeType == selectedCoffeeType ?  Color.coffeeBrown : Color.clear)
                             .cornerRadius(10)
                     }
                 }
@@ -35,5 +28,5 @@ struct mainCoffeeTypes: View {
 }
 
 #Preview {
-    mainCoffeeTypes()
+    mainCoffeeTypes(selectedCoffeeType: .constant("All coffee"))
 }

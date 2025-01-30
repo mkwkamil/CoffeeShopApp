@@ -1,6 +1,18 @@
 import SwiftUI
 
 extension Color {
+    
+    static let coffeeBrown = Color(hex: "C67C4E")
+    static let coffeeBrownLight = Color(hex: "F9F2ED")
+    static let coffeeYellow = Color(hex: "FBBE21")
+    static let coffeeBlack = Color(hex: "242424")
+    static let coffeeGray = Color(hex: "A2A2A2")
+    static let coffeeGrayLight = Color(hex: "E3E3E3")
+    static let coffeeBack = Color(hex: "EDEDED")
+    static let coffeeBackLight = Color(hex: "F9F9F9")
+    static let coffeeLocationSelected = Color(hex: "D8D8D8")
+    static let coffeeSearchBack = Color(hex: "2A2A2A")
+    
     init(hex: String) {
         let scanner = Scanner(string: hex)
         scanner.currentIndex = hex.startIndex

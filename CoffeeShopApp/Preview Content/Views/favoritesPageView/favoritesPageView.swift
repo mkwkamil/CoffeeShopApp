@@ -25,7 +25,7 @@ struct favoritesPageView: View {
                 }
                 .padding(.bottom, 120)
             }
-            .background(Color(hex: "EDEDED"))
+            .background(Color.coffeeBack)
         }
     }
 }

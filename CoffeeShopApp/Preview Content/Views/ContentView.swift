@@ -1,14 +1,7 @@
-//
-//  ContentView.swift
-//  CoffeeShop
-//
-//  Created by Kamil Porębski on 19/01/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab: CoffeeBottomToolbar.Tab = .favoritesPage
+    @State private var selectedTab: CoffeeBottomToolbar.Tab = .mainPage
     var body: some View {
         NavigationStack {
             ZStack {
@@ -28,7 +21,7 @@ struct ContentView: View {
                     CoffeeBottomToolbar(selectedTab: $selectedTab)
                 }
             }
-            .background(Color(hex: "EDEDED"))
+            .background(Color.coffeeBack)
             .ignoresSafeArea(.all, edges: .bottom)
         }
     }

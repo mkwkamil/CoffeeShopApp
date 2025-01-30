@@ -18,10 +18,10 @@ struct CoffeeBottomToolbar: View {
                 Group {
                     if selectedTab == .mainPage {
                         FilledHomeIcon()
-                            .fill(Color(hex: "C67C4E"))
+                            .fill(Color.coffeeBrown)
                     } else {
                         StrokedHomeIcon()
-                            .fill(Color(hex: "A2A2A2"))
+                            .fill(Color.coffeeGray)
                     }
                 }
                 .padding()
@@ -35,10 +35,10 @@ struct CoffeeBottomToolbar: View {
                 Group {
                     if selectedTab == .favoritesPage {
                         FilledFavoritesIcon()
-                            .fill(Color(hex: "C67C4E"))
+                            .fill(Color.coffeeBrown)
                     } else {
                         StrokedFavoritesIcon()
-                            .fill(Color(hex: "A2A2A2"))
+                            .fill(Color.coffeeGray)
                     }
                 }
                 .padding()
@@ -52,10 +52,10 @@ struct CoffeeBottomToolbar: View {
                 Group {
                     if selectedTab == .shoppingPage {
                         FilledShoppingIcon()
-                            .fill(Color(hex: "C67C4E"))
+                            .fill(Color.coffeeBrown)
                     } else {
                         StrokedShoppingIcon()
-                            .fill(Color(hex: "A2A2A2"))
+                            .fill(Color.coffeeGray)
                     }
                 }
                 .padding()
@@ -69,10 +69,10 @@ struct CoffeeBottomToolbar: View {
                 Group {
                     if selectedTab == .notificationsPage {
                         FilledNotificationsIcon()
-                            .fill(Color(hex: "C67C4E"))
+                            .fill(Color.coffeeBrown)
                     } else {
                         StrokedNotificationsIcon()
-                            .fill(Color(hex: "A2A2A2"))
+                            .fill(Color.coffeeGray)
 
                     }
                 }
