@@ -1,8 +1,9 @@
 import Foundation
 import SwiftUI
+import FirebaseFirestoreSwift
 
-struct Coffee: Codable, Hashable, Identifiable {
-    var id: Int
+struct Coffee: Codable, Identifiable {
+    @DocumentID var id: String?
     var name: String
     var category: String
     var flavour: String
@@ -12,8 +13,8 @@ struct Coffee: Codable, Hashable, Identifiable {
     var rating: Double
     var ratingCount: Int
     var isFavorite: Bool
-    
-    private var imageName: String
+    var imageName: String
+
     var image: Image {
         Image(imageName)
     }

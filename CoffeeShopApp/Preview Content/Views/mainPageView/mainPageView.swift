@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct mainPageView: View {
-    @Environment(ModelData.self) var modelData
+    @EnvironmentObject private var modelData: ModelData
     @State private var selectedCoffeeTypes = "All coffee"
     
     var body: some View {
@@ -28,5 +28,5 @@ struct mainPageView: View {
 
 #Preview {
     mainPageView()
-        .environment(ModelData())
+        .environmentObject(ModelData())
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct detailPageView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(ModelData.self) private var modelData
+    @EnvironmentObject private var modelData: ModelData
     var coffee: Coffee
     @State private var selectedSize: String
     @State private var isDescriptionExpanded = false
@@ -30,7 +30,7 @@ struct detailPageView: View {
                         }
                         Spacer()
                         Button {
-                            modelData.toggleFavorite(for: coffee.id)
+                            modelData.toggleFavorite(for: coffee.id!)
                         } label: {
                             Group {
                                 if modelData.coffees.first(where: { $0.id == coffee.id })?.isFavorite == true {
@@ -188,5 +188,5 @@ struct detailPageView: View {
 
 #Preview {
     detailPageView(coffee: ModelData().coffees[3])
-        .environment(ModelData())
+        .environmentObject(ModelData())
 }

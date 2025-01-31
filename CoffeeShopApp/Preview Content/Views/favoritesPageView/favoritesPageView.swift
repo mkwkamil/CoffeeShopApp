@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct favoritesPageView: View {
-    @Environment(ModelData.self) private var modelData
-
+    @EnvironmentObject private var modelData: ModelData
+    
     var body: some View {
         VStack {
             HStack {
@@ -18,6 +18,7 @@ struct favoritesPageView: View {
                     ForEach(modelData.coffees.filter{$0.isFavorite}, id: \.id) { coffee in
                         NavigationLink {
                             detailPageView(coffee: coffee)
+                                .environmentObject(modelData)
                         } label: {
                             favoritesPageItem(coffee: coffee)
                         }
@@ -32,5 +33,5 @@ struct favoritesPageView: View {
 
 #Preview {
     favoritesPageView()
-        .environment(ModelData())
+        .environmentObject(ModelData())
 }

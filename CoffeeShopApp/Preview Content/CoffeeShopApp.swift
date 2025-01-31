@@ -1,20 +1,21 @@
-//
-//  CoffeeShopApp.swift
-//  CoffeeShop
-//
-//  Created by Kamil Porębski on 19/01/2025.
-//
-
 import SwiftUI
+import FirebaseCore
 
 @main
 struct CoffeeShopApp: App {
-    @State private var modelData = ModelData()
+    @StateObject private var modelData = ModelData()
+    
+    init() {
+        FirebaseApp.configure()
+        print("Firebase został skonfigurowany!")
+    }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(ModelData())
+            NavigationView {
+                ContentView()
+                    .environmentObject(ModelData())                
+            }
         }
     }
 }

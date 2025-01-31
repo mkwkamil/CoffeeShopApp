@@ -4,6 +4,7 @@ extension Color {
     
     static let coffeeBrown = Color(hex: "C67C4E")
     static let coffeeBrownLight = Color(hex: "F9F2ED")
+    static let coffeeDark = Color(hex: "1E232C")
     static let coffeeYellow = Color(hex: "FBBE21")
     static let coffeeBlack = Color(hex: "242424")
     static let coffeeGray = Color(hex: "A2A2A2")

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct mainCoffeeItemList: View {
+    @EnvironmentObject private var modelData: ModelData
     var coffees: [Coffee]
     var selectedCoffeeType: String
     
@@ -20,6 +21,7 @@ struct mainCoffeeItemList: View {
             ForEach(filteredCoffees, id: \.id) { coffee in
                 NavigationLink {
                     detailPageView(coffee: coffee)
+                        .environmentObject(modelData)
                 } label: {
                     mainCoffeeItem(coffee: coffee)
                 }
@@ -32,5 +34,5 @@ struct mainCoffeeItemList: View {
 
 #Preview {
     mainCoffeeItemList(coffees: ModelData().coffees, selectedCoffeeType: "All coffee")
-        .environment(ModelData())
+        .environmentObject(ModelData())
 }
