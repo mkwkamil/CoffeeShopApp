@@ -6,6 +6,7 @@ struct loginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isPasswordVisible: Bool = false
+    @Binding var isUserLoggedIn: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
@@ -95,6 +96,8 @@ struct loginView: View {
                     AuthService.shared.loginWithEmailAndPassword(email: email, password: password) { success, error in
                         if success {
                             print("Login successful")
+                            isUserLoggedIn = true
+                            dismiss()
                         }
                         else {
                             print("Login failed: \(error?.localizedDescription ?? "Unknown error")")
@@ -125,9 +128,21 @@ struct loginView: View {
                 }
                 .foregroundColor(Color.coffeeGray)
                 HStack {
-                    orLoginButton(imageName: "facebookLogo")
-                    orLoginButton(imageName: "googleLogo")
-                    orLoginButton(imageName: "appleLogo")
+                    Button(action: {
+                        // btn logic
+                    }) {
+                        orLoginButton(imageName: "facebookLogo")
+                    }
+                    Button(action: {
+                        // btn logic
+                    }) {
+                        orLoginButton(imageName: "googleLogo")
+                    }
+                    Button(action: {
+                        // btn logic
+                    }) {
+                        orLoginButton(imageName: "appleLogo")
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 Spacer()
@@ -155,6 +170,5 @@ struct loginView: View {
 
 #Preview {
     NavigationStack {
-        loginView()
-    }
+        loginView(isUserLoggedIn: .constant(false))    }
 }

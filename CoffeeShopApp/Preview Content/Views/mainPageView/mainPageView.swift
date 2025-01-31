@@ -5,11 +5,13 @@ import SwiftUI
 struct mainPageView: View {
     @EnvironmentObject private var modelData: ModelData
     @State private var selectedCoffeeTypes = "All coffee"
+    @Binding var isUserLoggedIn: Bool
+
     
     var body: some View {
         VStack(spacing: -60) {
             ScrollView(showsIndicators: false) {
-                mainCoffeeTopBar()
+                mainCoffeeTopBar(isUserLoggedIn: $isUserLoggedIn)
                 VStack {
                     mainCoffeeBanner()
                     mainCoffeeTypes(selectedCoffeeType: $selectedCoffeeTypes)
@@ -27,6 +29,6 @@ struct mainPageView: View {
 }
 
 #Preview {
-    mainPageView()
+    mainPageView(isUserLoggedIn: .constant(false))
         .environmentObject(ModelData())
 }

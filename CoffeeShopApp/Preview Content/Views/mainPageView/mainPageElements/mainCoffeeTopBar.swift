@@ -11,6 +11,7 @@ struct mainCoffeeTopBar: View {
     @State private var coffeeName = ""
     @State private var selectedLocation = "Bilzen, Tanjungbalai"
     @State private var locations: [String] = ["Bilzen, Tanjungbalai", "New York, USA", "Tokyo, Japan", "London, UK"]
+    @Binding var isUserLoggedIn: Bool
 
     
     var body: some View {
@@ -34,7 +35,6 @@ struct mainCoffeeTopBar: View {
                             .foregroundColor(.white)
                             .font(.headline)
                             .foregroundColor(Color.coffeeLocationSelected)
-//                        Spacer()
                         Image(systemName: "chevron.down")
                             .foregroundColor(Color.coffeeLocationSelected)
                     }
@@ -56,7 +56,16 @@ struct mainCoffeeTopBar: View {
                 .background(Color.coffeeSearchBack)
                 .cornerRadius(20)
                 Button {
-                    // logika
+                    AuthService.shared.logout { success, error in
+                        if success {
+                            isUserLoggedIn = false
+                            print("User has been signed out.")
+                        }
+                        else {
+                            print("Logout failed: \(error?.localizedDescription ?? "Unknown error")")
+                        }
+                       
+                    }
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease")
                         .foregroundColor(.white)
@@ -81,5 +90,5 @@ struct mainCoffeeTopBar: View {
 }
 
 #Preview {
-    mainCoffeeTopBar()
+    mainCoffeeTopBar(isUserLoggedIn: .constant(false))
 }

@@ -6,6 +6,8 @@ target 'CoffeeShopApp' do
   pod 'FirebaseFirestore'
   pod 'FirebaseAuth'
   pod 'FirebaseFirestoreSwift'
+  pod 'FBSDKLoginKit'
+    
 end
 
 post_install do |installer|
