@@ -18,7 +18,8 @@ struct detailCoffeeAtribiutes: View {
         }
         .padding()
         .background(Color.coffeeBack.opacity(0.35))
-        .cornerRadius(12)    }
+        .cornerRadius(12)
+    }
 }
 
 #Preview {
