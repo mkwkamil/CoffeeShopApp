@@ -28,7 +28,7 @@ struct authMainView: View {
                         .background(Color.coffeeDark)
                         .cornerRadius(8)
                 }
-                NavigationLink(destination: registerView()) {
+                NavigationLink(destination: registerView(isUserLoggedIn: $isUserLoggedIn)) {
                     Text("Register")
                         .padding(22)
                         .frame(maxWidth: .infinity)

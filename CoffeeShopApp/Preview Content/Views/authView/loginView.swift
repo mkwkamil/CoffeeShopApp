@@ -150,7 +150,7 @@ struct loginView: View {
                     Spacer()
                     Text("Don't have an account?")
                         .foregroundColor(Color.coffeeDark)
-                    NavigationLink(destination: registerView(), label: {
+                    NavigationLink(destination: registerView(isUserLoggedIn: $isUserLoggedIn), label: {
                         Text("Register now")
                     })
                     Spacer()
