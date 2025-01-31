@@ -1,4 +1,5 @@
 import SwiftUI
+import FirebaseAuth
 
 struct loginView: View {
     @Environment(\.dismiss) var dismiss
@@ -90,7 +91,16 @@ struct loginView: View {
                             .foregroundColor(Color.coffeeGrayDark)
                     }
                 }
-                NavigationLink(destination: loginView()) {
+                Button {
+                    AuthService.shared.loginWithEmailAndPassword(email: email, password: password) { success, error in
+                        if success {
+                            print("Login successful")
+                        }
+                        else {
+                            print("Login failed: \(error?.localizedDescription ?? "Unknown error")")
+                        }
+                    }
+                } label: {
                     Text("Login")
                         .padding(22)
                         .frame(maxWidth: .infinity)
